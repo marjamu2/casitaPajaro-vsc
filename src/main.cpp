@@ -27,7 +27,7 @@ const char *telegramBotToken = "8808996429:AAHPr90njCkX0Lgg_iqgqKTX17b0yBPwm9w";
 const char *telegramChatId = "-5557236171";
 
 constexpr int PIR_GPIO_NUM = 13;
-constexpr unsigned long FALLBACK_PHOTO_INTERVAL_MS = 300000;
+constexpr unsigned long FALLBACK_PHOTO_INTERVAL_MS = 3600000;
 
 void startCameraServer();
 void setupLedFlash();
@@ -242,7 +242,7 @@ void loop() {
     captureAndSendPhoto();
     lastPhotoAt = millis();
   } else if (millis() - lastPhotoAt >= FALLBACK_PHOTO_INTERVAL_MS) {
-    Serial.println("Taking 30-second fallback photo");
+    Serial.println("Taking 1-hour fallback photo");
     captureAndSendPhoto();
     lastPhotoAt = millis();
   }
